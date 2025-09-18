@@ -7,6 +7,8 @@ import { setUser } from './store';
 import VueWrapper from './components/VueWrapper';
 import RemoteVueApp from './components/RemoteVueApp';
 import AngularWrapper from './components/AngularWrapper';
+import AngularRemoteApp from './components/AngularRemoteApp';
+
 
 const RemoteHome = lazy(() => import('home/Home'));
 const RemoteSupport = lazy(() => import('support/Support'));
@@ -14,7 +16,7 @@ const RemoteSupport = lazy(() => import('support/Support'));
 const APPS = [
   { key: 'home', label: 'Home', component: <RemoteHome /> },
   { key: 'about', label: 'About', component: <VueWrapper /> },
-  { key: 'contact', label: 'Contact', component: <AngularWrapper /> },
+  { key: 'contact', label: 'Contact', component: <AngularRemoteApp /> },
   { key: 'careers', label: 'Careers', component: <RemoteVueApp /> },
   { key: 'support', label: 'Support', component: <RemoteSupport /> },
 ];
@@ -24,8 +26,8 @@ export function App() {
   const [selectedApp, setSelectedApp] = useState('home');
   const dispatch = useDispatch();
 
-
   useEffect(() => {
+    console.log('Host App mounted');
     // Set initial user/token state on mount
     // dispatch(setUser({ id: '1', name: 'Alice', token: 'xyz' }));
   }, [dispatch]);
@@ -34,6 +36,10 @@ export function App() {
   const state = useSelector((state: any) => state);
 
   const currentApp = APPS.find(app => app.key === selectedApp)?.component;
+
+  useEffect(() => {
+    window.history.replaceState(null, '', '/');
+  }, [selectedApp, currentApp]);
 
   return (
     <>

@@ -39,7 +39,7 @@ module.exports = {
       remotes: {
         home: 'home@http://localhost:3002/remoteEntry.js',
         about: 'about@http://localhost:3003/remoteEntry.js',
-        contact: 'contact@http://localhost:3004/remoteEntry.js',
+        angularRemoteApp: 'angularRemoteApp@http://localhost:3004/remoteEntry.js',
         careers: 'careers@http://localhost:3005/remoteEntry.js',
         support: 'support@http://localhost:3006/remoteEntry.js',
       },

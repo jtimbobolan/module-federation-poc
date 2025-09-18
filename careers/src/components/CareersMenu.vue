@@ -1,26 +1,21 @@
 <template>
-  <div class="careers-remote">
-    <h2>Remote Careers Component (Vue)</h2>
+  <div class="careers-menu">
     <nav>
       <router-link to="/careers/full-time">Full-Time</router-link> |
       <router-link to="/careers/part-time">Part-Time</router-link> |
       <router-link to="/careers/contract">Contract</router-link>
     </nav>
-    <router-view />
   </div>
 </template>
 
 <script setup>
-// No local jobs data needed, routing will handle page content
+// No logic needed
 </script>
 
 <style scoped>
-.careers-remote {
+.careers-menu {
   text-align: center;
   margin-top: 2rem;
-}
-h2 {
-  color: #42b983;
 }
 nav {
   margin-bottom: 1rem;
@@ -32,16 +27,5 @@ nav a {
 }
 nav a.router-link-exact-active {
   font-weight: bold;
-}
-h2 {
-  color: #42b983;
-}
-ul {
-  margin-top: 1rem;
-  list-style: none;
-  padding: 0;
-}
-li {
-  margin: 0.5rem 0;
 }
 </style>

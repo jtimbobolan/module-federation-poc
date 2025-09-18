@@ -46,6 +46,9 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'careers',
       filename: 'remoteEntry.js',
+      remotes: {
+        host: 'host@http://localhost:3001/remoteEntry.js',
+      },
       exposes: {
         './Careers': './src/main.js',
       },
